@@ -12,6 +12,10 @@ namespace TP1
 
         public Vaisseau()
         {
+            MaxStructure = 3;
+            MaxShield = 5;
+            IsAlive = true;
+            Armory = new Armurerie();
         }
 
         public int MaxStructure { get => _maxStructure; set => _maxStructure = value; }

@@ -17,9 +17,11 @@ namespace TP1
         {
             SpaceInvaders spaceInvaders = new SpaceInvaders();
             
-            foreach (Joueur player in spaceInvaders.PlayersList)
+            foreach (Joueur Player in spaceInvaders.PlayersList)
             {
-                Console.WriteLine(player.ToString());
+                Console.WriteLine(Player.ToString());
+                Player.Vessel.ShowWeapons();
+                Console.WriteLine();
             }
         }
 

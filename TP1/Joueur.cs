@@ -7,15 +7,19 @@ namespace TP1
     public class Joueur
     {
         private string _name, _firstname, _nickname;
+        private Vaisseau _vessel;
 
         public Joueur(string name, string firstname, string nickname)
         {
             _name = FirstUpper(name);
             _firstname = FirstUpper(firstname);
             _nickname = nickname;
+
+            Vessel = new Vaisseau();
         }
 
         public string Nickname { get => _nickname;}
+        public Vaisseau Vessel { get => _vessel; set => _vessel = value; }
 
         private static string FirstUpper(string statement)
         {
