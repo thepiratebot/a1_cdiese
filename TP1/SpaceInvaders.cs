@@ -6,7 +6,7 @@ namespace TP1
 {
     public class SpaceInvaders
     {
-        private List<Joueur> _playerList = new List<Joueur>();
+        private List<Joueur> _playersList = new List<Joueur>();
 
         public SpaceInvaders()
         {
@@ -17,7 +17,7 @@ namespace TP1
         {
             SpaceInvaders spaceInvaders = new SpaceInvaders();
             
-            foreach (Joueur player in spaceInvaders.PlayerList)
+            foreach (Joueur player in spaceInvaders.PlayersList)
             {
                 Console.WriteLine(player.ToString());
             }
@@ -29,11 +29,11 @@ namespace TP1
             Joueur _playerTwo = new Joueur("Harlé", "Maxime", "El Professor");
             Joueur _playerThree = new Joueur("Muller", "Jean-Marc", "Sidi Raïs");
 
-            PlayerList.Add(_playerOne);
-            PlayerList.Add(_playerTwo);
-            PlayerList.Add(_playerThree);
+            PlayersList.Add(_playerOne);
+            PlayersList.Add(_playerTwo);
+            PlayersList.Add(_playerThree);
         }
 
-        public List<Joueur> PlayerList { get => _playerList;}
+        public List<Joueur> PlayersList { get => _playersList;}
     }
 }
