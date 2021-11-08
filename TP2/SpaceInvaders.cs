@@ -105,7 +105,8 @@ namespace TP2
                     if (EnnemyVessel.Shield <= EnnemyVessel.MaxShield - 2)
                     {
                         EnnemyVessel.Shield += 2;
-                    } else
+                    } 
+                    else
                     {
                         EnnemyVessel.Shield++;
                     }
@@ -118,7 +119,8 @@ namespace TP2
                     if (PlayerVessel.Vessel.Shield <= PlayerVessel.Vessel.MaxShield)
                     {
                         PlayerVessel.Vessel.Shield += 2;
-                    } else
+                    } 
+                    else
                     {
                         PlayerVessel.Vessel.Shield++;
                     }
