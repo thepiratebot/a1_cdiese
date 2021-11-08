@@ -90,12 +90,12 @@ namespace TP2.VesselChild
         {
             if (Armory.WeaponsList.Count == 1)
             {
-                vessel.Damage(Armory.WeaponsList[1].Damage);
+                vessel.Damage(Armory.WeaponsList[0].Damage);
             } else
             {
                 Console.WriteLine($"Veuillez choisir l'arme avec laquel vous souhaitez tirer : ");
                 
-                int indice = 1;
+                int indice = 0;
                 foreach (Arme Weapon in Armory.WeaponsList)
                 {
                     Console.WriteLine($"[{ indice }] - { Weapon.Name }");
@@ -106,7 +106,7 @@ namespace TP2.VesselChild
                 while (wait)
                 {
                     int choose = Int32.Parse(Console.ReadLine());
-                    if (choose <= Armory.WeaponsList.Count && choose > 0)
+                    if (choose <= Armory.WeaponsList.Count && choose >= 0)
                     {
                         vessel.Damage(Armory.WeaponsList[choose].Damage);
                         wait = false;

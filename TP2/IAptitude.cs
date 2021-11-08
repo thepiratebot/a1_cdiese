@@ -6,6 +6,6 @@ namespace TP2
 {
     public interface IAptitude
     {
-        void Utilise(List<Vaisseau> VesselList);
+        public int Utilise(List<Vaisseau> VesselList);
     }
 }
