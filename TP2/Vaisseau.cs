@@ -4,50 +4,26 @@ using System.Text;
 
 namespace TP2
 {
-    public class Vaisseau
+    public abstract class Vaisseau
     {
-        private int _maxStructure, _maxShield;
-        private bool _isAlive;
-        private Armurerie _armory;
+        /* ATTRIBUTES */
+        protected int _maxStructure, _maxShield, _structure, _shield;
+        protected bool _isAlive;
+        protected Armurerie _armory = new Armurerie();
 
-        public Vaisseau()
-        {
-            MaxStructure = 3;
-            MaxShield = 5;
-            IsAlive = true;
-            Armory = new Armurerie();
-        }
+        /* GETTERS & SETTERS */
+        public abstract int MaxStructure { get; set; }
+        public abstract int MaxShield { get; set; }
+        public abstract bool IsAlive { get; set; }
+        public abstract Armurerie Armory { get; set; }
+        public abstract int Structure { get; set; }
+        public abstract int Shield { get; set; }
 
-        public int MaxStructure { get => _maxStructure; set => _maxStructure = value; }
-        public int MaxShield { get => _maxShield; set => _maxShield = value; }
-        public bool IsAlive { get => _isAlive; set => _isAlive = value; }
-        public Armurerie Armory { get => _armory; set => _armory = value; }
-
-        public void WeaponAdd(Arme weapon)
-        {
-            if (Armory.WeaponsList.Count < 3)
-                Armory.WeaponsList.Add(weapon);
-        }
-
-        public void WeaponRemove(int index)
-        {
-            if (Armory.WeaponsList.Count > 0)
-                Armory.WeaponsList.RemoveAt(index);
-        }
-
-        public void ShowWeapons()
-        {
-            int averageDamage = 0;
-
-            foreach (Arme Weapon in Armory.WeaponsList)
-            {
-                Console.WriteLine($"Nom : { Weapon.Name } Dégât : { Weapon.Damage } Dégât critique : { Weapon.CriticalDamage } Type de dégât : { Weapon.TypeDamage }");
-                averageDamage += Weapon.Damage;
-            }
-
-            averageDamage /= Armory.WeaponsList.Count;
-
-            Console.WriteLine($"Dégât moyen du vaisseau : { averageDamage }");
-        }
+        /* METHODS */
+        public abstract void WeaponAdd(Arme weapon);
+        public abstract void WeaponRemove(int index);
+        public abstract void ShowWeapons();
+        public abstract void Damage(int damage);
+        public abstract void Attack(Vaisseau vessel);
     }
 }

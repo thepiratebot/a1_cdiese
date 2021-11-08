@@ -8,11 +8,12 @@ namespace TP2
     {
         /* ATTRIBUTES */
         private string _name;
-        private int _damage, _criticalDamage, _reloadTime, _roundCounter;
+        private int _damage, _criticalDamage;
+        private double _reloadTime, _roundCounter;
         private Type _typeDamage;
 
         /* CONSTRUCTORS */
-        public Arme(string name, int damage, int criticalDamage, int reloadTime, Type type)
+        public Arme(string name, int damage, int criticalDamage, double reloadTime, Type type)
         {
             Name = name;
             Damage = damage;
@@ -27,8 +28,8 @@ namespace TP2
         public string Name { get => _name; set => _name = value; }
         public int Damage { get => _damage; set => _damage = value; }
         public int CriticalDamage { get => _criticalDamage; set => _criticalDamage = value; }
-        public int ReloadTime { get => _reloadTime; set => _reloadTime = value; }
-        public int RoundCounter { get => _roundCounter; set => _roundCounter = value; }
+        public double ReloadTime { get => _reloadTime; set => _reloadTime = value; }
+        public double RoundCounter { get => _roundCounter; set => _roundCounter = value; }
         public Type TypeDamage { get => _typeDamage; set => _typeDamage = value; }
         
         /* METHODS */
