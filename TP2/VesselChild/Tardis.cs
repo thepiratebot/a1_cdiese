@@ -115,7 +115,7 @@ namespace TP2.VesselChild
         }
 
         /* INTERFACES */
-        int Utilise(List<Vaisseau> VesselList)
+        public int Utilise(List<Vaisseau> VesselList)
         {
             Random random = new Random();
             int indice = random.Next(0, VesselList.Count);

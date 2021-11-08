@@ -115,7 +115,7 @@ namespace TP2.VesselChild
         }
 
         /* INTERFACES */
-        int Utilise(List<Vaisseau> VesselList)
+        public int Utilise(List<Vaisseau> VesselList)
         {
             if (VesselList[1].GetType() == typeof(F_18))
             {
