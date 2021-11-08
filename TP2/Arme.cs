@@ -6,23 +6,63 @@ namespace TP2
 {
     public class Arme
     {
+        /* ATTRIBUTES */
         private string _name;
-        private int _damage, _criticalDamage;
+        private int _damage, _criticalDamage, _reloadTime, _roundCounter;
         private Type _typeDamage;
 
-        public Arme(string name, int damage, int criticalDamage, Type type)
+        /* CONSTRUCTORS */
+        public Arme(string name, int damage, int criticalDamage, int reloadTime, Type type)
         {
             Name = name;
             Damage = damage;
             CriticalDamage = criticalDamage;
             TypeDamage = type;
+            ReloadTime = reloadTime;
+
+            RoundCounter = (type == Type.Explosif) ? ReloadTime * 2 : ReloadTime; 
         }
 
+        /* GETTERS & SETTERS */
         public string Name { get => _name; set => _name = value; }
         public int Damage { get => _damage; set => _damage = value; }
         public int CriticalDamage { get => _criticalDamage; set => _criticalDamage = value; }
+        public int ReloadTime { get => _reloadTime; set => _reloadTime = value; }
+        public int RoundCounter { get => _roundCounter; set => _roundCounter = value; }
         public Type TypeDamage { get => _typeDamage; set => _typeDamage = value; }
         
+        /* METHODS */
+        public int SimulatedShoot()
+        {
+            if (RoundCounter > 0)
+            {
+                RoundCounter -= 1;
+            } else
+            {
+                Random random = new Random();
+
+                switch (TypeDamage)
+                {
+                    case Type.Direct:
+                        return (random.Next(1, 10) > 1) ? random.Next(Damage, CriticalDamage) : 0;
+                    case Type.Explosif:
+                        if (random.Next(1, 4) > 1)
+                        {
+                            RoundCounter = ReloadTime * 2;
+                            return random.Next(Damage, CriticalDamage) * 2;
+                        } else
+                        {
+                            return 0;
+                        }
+                    case Type.Guidé:
+                        return Damage;
+                }
+            }
+
+            return 0;
+        }
+        
+        /* OTHERS */
         public enum Type
         {
             Direct,
