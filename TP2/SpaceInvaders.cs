@@ -86,12 +86,15 @@ namespace TP2
                     {
                         if (indice > 1)
                         {
-                            EnnemyVessel.Attack(PlayersList[0].Vessel);
+                            PlayersList[0].Vessel.Attack(EnnemyList[indice]);
+                            isShooting = false;
+                            Console.WriteLine("Joueur a tiré");
                         }
                         else
                         {
-                            PlayersList[0].Vessel.Attack(EnnemyList[indice]);
-                            isShooting = false;
+                            EnnemyVessel.Attack(PlayersList[0].Vessel);
+                            Console.WriteLine("Ennemie a tiré");
+                            Console.WriteLine($"Il vous reste : { PlayersList[0].Vessel.Shield } points de bouclier et { PlayersList[0].Vessel.Structure } points de structure");
                         }
                     }
                 }
