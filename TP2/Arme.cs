@@ -20,8 +20,9 @@ namespace TP2
             CriticalDamage = criticalDamage;
             TypeDamage = type;
             ReloadTime = reloadTime;
+            RoundCounter = 0;
 
-            RoundCounter = (type == Type.Explosif) ? ReloadTime * 2 : ReloadTime; 
+            ReloadTime = (type == Type.Explosif) ? ReloadTime * 2 : ReloadTime ; 
         }
 
         /* GETTERS & SETTERS */

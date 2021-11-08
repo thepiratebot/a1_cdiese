@@ -23,6 +23,7 @@ namespace TP2.VesselChild
 
             Random random = new Random();
             int laChancla = random.Next(1, 3);
+
             Armory.WeaponsList[laChancla].ReloadTime = 0;
             Armory.WeaponsList[laChancla].RoundCounter = Armory.WeaponsList[laChancla].ReloadTime;
         }
@@ -106,18 +107,28 @@ namespace TP2.VesselChild
                 int indice = 0;
                 foreach (Arme Weapon in Armory.WeaponsList)
                 {
-                    Console.WriteLine($"[{ indice }] - { Weapon.Name }");
-                    indice++;
+                    if (Weapon.RoundCounter == 0)
+                    {
+                        Console.WriteLine($"[{ indice }] - { Weapon.Name }");
+                        indice++;
+                    }
                 }
 
-                bool wait = true;
-                while (wait)
+                if (indice == 0)
                 {
-                    int choose = Int32.Parse(Console.ReadLine());
-                    if (choose <= Armory.WeaponsList.Count && choose >= 0)
+                    Console.WriteLine("Aucune arme disponible");
+                }
+                else
+                {
+                    bool wait = true;
+                    while (wait)
                     {
-                        vessel.Damage(Armory.WeaponsList[choose].Damage);
-                        wait = false;
+                        int choose = Int32.Parse(Console.ReadLine());
+                        if (choose <= Armory.WeaponsList.Count && choose >= 0)
+                        {
+                            vessel.Damage(Armory.WeaponsList[choose].Damage);
+                            wait = false;
+                        }
                     }
                 }
             }

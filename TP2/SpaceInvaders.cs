@@ -73,29 +73,23 @@ namespace TP2
 
         public void Round()
         {
+            Random random = new Random();
             foreach (Vaisseau EnnemyVessel in EnnemyList)
             {
-                Random random = new Random();
-                bool isShooting = true;
+                int indice = random.Next(0, EnnemyList.Count);
 
-                while (isShooting)
+                if (EnnemyList[indice].IsAlive)
                 {
-                    int indice = random.Next(0, EnnemyList.Count);
-
-                    if (EnnemyList[indice].IsAlive)
+                    if (indice > 1)
                     {
-                        if (indice > 1)
-                        {
-                            PlayersList[0].Vessel.Attack(EnnemyList[indice]);
-                            isShooting = false;
-                            Console.WriteLine("Joueur a tiré");
-                        }
-                        else
-                        {
-                            EnnemyVessel.Attack(PlayersList[0].Vessel);
-                            Console.WriteLine("Ennemie a tiré");
-                            Console.WriteLine($"Il vous reste : { PlayersList[0].Vessel.Shield } points de bouclier et { PlayersList[0].Vessel.Structure } points de structure");
-                        }
+                        PlayersList[0].Vessel.Attack(EnnemyList[indice]);
+                        Console.WriteLine("Joueur a tiré");
+                    }
+                    else
+                    {
+                        EnnemyVessel.Attack(PlayersList[0].Vessel);
+                        Console.WriteLine("Ennemie a tiré");
+                        Console.WriteLine($"Il vous reste : { PlayersList[0].Vessel.Shield } points de bouclier et { PlayersList[0].Vessel.Structure } points de structure");
                     }
                 }
             }
