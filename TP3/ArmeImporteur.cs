@@ -16,6 +16,19 @@ namespace TP3
         public ArmeImporteur(int StringLenght) 
         {
             StreamReader _file = new StreamReader($"C:\\Users\\Brice - DevOps\\Desktop\\test.txt");
+            StreamReader _fileBlackList = new StreamReader($"C:\\Users\\Brice - DevOps\\Desktop\\blacklist.txt");
+
+            // Permet de récupérer une liste de mot en liste noire depuis un fichier source
+            foreach (string _word in _fileBlackList.ReadToEnd().Split())
+            {
+                if (_word != "")
+                {
+                    string _cleanWord = Regex.Replace(_word, @"[^\w\s\d]", "").ToLower();
+
+                    if (!_blackList.Contains(_cleanWord))
+                        _blackList.Add(_cleanWord);
+                }
+            }
 
             // Permet de récupérer une liste de mot depuis un fichier source
             foreach (string _word in _file.ReadToEnd().Split())
