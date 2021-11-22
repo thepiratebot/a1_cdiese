@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TP2.VesselChild
+namespace TP3.VesselChild
 {
     public class B_Wings : Vaisseau
     {

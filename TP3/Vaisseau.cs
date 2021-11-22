@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TP2
+namespace TP3
 {
     public abstract class Vaisseau
     {

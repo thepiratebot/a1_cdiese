@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TP2.VesselChild;
+using TP3.VesselChild;
 
-namespace TP2
+namespace TP3
 {
     public class Joueur
     {

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
-using TP2.VesselChild;
+using System.Text.RegularExpressions;
+using TP3.VesselChild;
 
-namespace TP2
+namespace TP3
 {
     public class SpaceInvaders
     {
@@ -50,7 +52,7 @@ namespace TP2
                         break;
                     }
                 }
-            }
+            } 
         }
 
         /* GETTERS & SETTERS */

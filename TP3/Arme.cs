@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TP2
+namespace TP3
 {
     public class Arme
     {
@@ -64,6 +64,11 @@ namespace TP2
             return 0;
         }
         
+        public double AverageDamage()
+        {   
+            return (_damage + _criticalDamage) / 2;
+        }
+
         /* OTHERS */
         public enum Type
         {
